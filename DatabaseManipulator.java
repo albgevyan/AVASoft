@@ -16,9 +16,34 @@ public class DatabaseManipulator{
         this.statement = this.connection.createStatement();
     }
 
-    public void createTable(String tableName) throws SQLException {
-        String sql = "create table";
+    public void createSchema(){
 
+    }
+
+//    public void createTable(String tableName, String[] columns, String[] dtypes) throws SQLException {
+
+    public void createTable(String tableName, DatabaseObjectCharacteristics[] params) throws SQLException {
+        StringBuilder sql = new StringBuilder("CREATE TABLE ");
+        sql.append(tableName).append(" (");
+
+        for (int i = 0; i < params.length;i++) {
+            sql.append(params[i].toStringBuilder());
+            if (i < params.length - 1)
+                sql.append(",");
+        }
+
+        sql.append(")");
+
+        this.statement.executeQuery(sql.toString());
+    }
+
+    public void insertRow(String tableName, DatabaseObjectCharacteristics[] params){
+        StringBuilder sql = new StringBuilder("INSERT ");
+    }
+
+    public void directExecution(String sql) throws SQLException{
         this.statement.executeQuery(sql);
     }
+
+//    public void append(String tableName){}
 }
