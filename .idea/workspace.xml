@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d957f6b7-d608-4a43-8547-19f0e863ce65" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Parameter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DataContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseCommunicator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DatabaseRetriever.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DatabaseManipulator.class" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseManipulator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DatabaseManipulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseManipulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Parameter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Parameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/DatabaseObjectCharacteristics.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +55,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -78,19 +81,6 @@
     <configuration name="Bank" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Bank" />
       <module name="AVASoft" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="AVASoft" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="AVASoft" />
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -135,7 +125,9 @@
       <workItem from="1710446769065" duration="2673000" />
       <workItem from="1710496563235" duration="816000" />
       <workItem from="1710511160939" duration="4189000" />
-      <workItem from="1710577225069" duration="1143000" />
+      <workItem from="1710577225069" duration="9391000" />
+      <workItem from="1710835310468" duration="5699000" />
+      <workItem from="1710861899227" duration="169000" />
     </task>
     <servers />
   </component>

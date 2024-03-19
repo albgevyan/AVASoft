@@ -1,8 +1,14 @@
 import java.sql.*;
 
-public class DatabaseManipulator{
+/** Implements sql commands, providing a Java API
+ * @author Albert Gevorgyan
+ * @version 1.0
+ */
+
+public class DatabaseManipulator extends DatabaseCommunicator{
     private Connection connection;
     private Statement statement;
+    private StringBuilder sql;
 
     public DatabaseManipulator(String dbURL) throws SQLException{
 
@@ -23,22 +29,32 @@ public class DatabaseManipulator{
 //    public void createTable(String tableName, String[] columns, String[] dtypes) throws SQLException {
 
     public void createTable(String tableName, DatabaseObjectCharacteristics[] params) throws SQLException {
-        StringBuilder sql = new StringBuilder("CREATE TABLE ");
-        sql.append(tableName).append(" (");
+        this.sql = new StringBuilder("CREATE TABLE ()");
 
-        for (int i = 0; i < params.length;i++) {
-            sql.append(params[i].toStringBuilder());
+        for (int i = 0; i < params.length; i++) {
+
+            this.sql.append(params[i].toStringBuilder());
+
             if (i < params.length - 1)
                 sql.append(",");
         }
 
-        sql.append(")");
+        this.statement.executeQuery(sql.toString());
+    }
+
+    public void insertRow(String tableName, DataContainer data) throws SQLException{
+        StringBuilder sql = new StringBuilder("INSERT INTO  VALUES()");
+        sql.insert(12, tableName);
+        sql.insert(data.toStringBuilder(sql.length()-1));
 
         this.statement.executeQuery(sql.toString());
     }
 
-    public void insertRow(String tableName, DatabaseObjectCharacteristics[] params){
-        StringBuilder sql = new StringBuilder("INSERT ");
+    public void getTableMetadata(String name){
+        this.sql = "SELECT ANY FROM ";
+        this.sql = sql.append(name);
+
+        this.statement.executeQuery(this.sql);
     }
 
     public void directExecution(String sql) throws SQLException{
