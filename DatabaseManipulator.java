@@ -1,32 +1,28 @@
 import java.sql.*;
 
 /** Implements sql commands, providing a Java API
+ * Warning! Be careful with sql injrctions!
  * @author Albert Gevorgyan
  * @version 1.0
  */
 
 public class DatabaseManipulator extends DatabaseCommunicator{
-    private Connection connection;
-    private Statement statement;
     private StringBuilder sql;
 
+    /**
+     * 
+     */
+
     public DatabaseManipulator(String dbURL) throws SQLException{
-
-        this.connection = DriverManager.getConnection(dbURL);
-
-        if (this.connection != null)
-            System.out.println("Successfully connected.");
-        else
-            System.out.println("Failed to connect.");
-
-        this.statement = this.connection.createStatement();
+        super(dbURL);
     }
 
-    public void createSchema(){
-
-    }
-
-//    public void createTable(String tableName, String[] columns, String[] dtypes) throws SQLException {
+    /**
+     * Creates table within the given schema.
+     * @param tableName the name of the table
+     * @param params the column parameters
+     * @throws SQLException
+     */
 
     public void createTable(String tableName, DatabaseObjectCharacteristics[] params) throws SQLException {
         this.sql = new StringBuilder("CREATE TABLE ()");
@@ -39,27 +35,21 @@ public class DatabaseManipulator extends DatabaseCommunicator{
                 sql.append(",");
         }
 
-        this.statement.executeQuery(sql.toString());
+        this.statement.executeUpdate(sql.toString());
     }
+
+    /**
+     * Inserts a row into the specified table.
+     * @param tableName the name of the table
+     * @param data the corresponding column values
+     * @throws SQLException
+     */
 
     public void insertRow(String tableName, DataContainer data) throws SQLException{
         StringBuilder sql = new StringBuilder("INSERT INTO  VALUES()");
         sql.insert(12, tableName);
-        sql.insert(data.toStringBuilder(sql.length()-1));
+        sql.insert(sql.length()-1, data.toConditionalColumnSet());
 
-        this.statement.executeQuery(sql.toString());
+        this.statement.executeUpdate(sql.toString());
     }
-
-    public void getTableMetadata(String name){
-        this.sql = "SELECT ANY FROM ";
-        this.sql = sql.append(name);
-
-        this.statement.executeQuery(this.sql);
-    }
-
-    public void directExecution(String sql) throws SQLException{
-        this.statement.executeQuery(sql);
-    }
-
-//    public void append(String tableName){}
 }
