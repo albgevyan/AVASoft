@@ -1,0 +1,24 @@
+Exception in thread "main" java.sql.SQLException: ORA-17866: Недопустимый формат номера порта
+https://docs.oracle.com/error-help/db/ora-17866/
+	at oracle.jdbc.driver.T4CConnection.handleLogonNetException(T4CConnection.java:1398)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:991)
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:1157)
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:104)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:825)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:651)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:253)
+	at DatabaseCommunicator.<init>(DatabaseCommunicator.java:21)
+	at DatabaseManipulator.<init>(DatabaseManipulator.java:17)
+	at Main.main(Main.java:7)
+Caused by: oracle.net.ns.NetException: ORA-17866: Недопустимый формат номера порта
+https://docs.oracle.com/error-help/db/ora-17866/
+	at oracle.net.resolver.HostnameNamingAdapter.resolve(HostnameNamingAdapter.java:243)
+	at oracle.net.resolver.NameResolver.resolveName(NameResolver.java:150)
+	at oracle.net.resolver.AddrResolution.resolveTNSAddress(AddrResolution.java:903)
+	at oracle.net.resolver.AddrResolution.initConnStrategy(AddrResolution.java:632)
+	at oracle.net.resolver.AddrResolution.<init>(AddrResolution.java:447)
+	at oracle.net.ns.NSProtocol.<init>(NSProtocol.java:246)
+	at oracle.net.ns.NSProtocolNIO.<init>(NSProtocolNIO.java:147)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:911)
+	... 9 more

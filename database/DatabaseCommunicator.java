@@ -15,7 +15,7 @@ public class DatabaseCommunicator{
 
     public DatabaseCommunicator(String dbURL) throws SQLException{
 
-        if (connection != null){
+        if (connection == null){
 
             System.out.println("------------------\nWARNING!\n------------------\nBe careful with your input. Be careful of SQL injections. Avoid typing special characters(e.g. =, ', \") and SQL keywords(e.g. SELECT, ALTER, FROM, etc.)");
             connection = DriverManager.getConnection(dbURL);
@@ -28,6 +28,9 @@ public class DatabaseCommunicator{
                 System.out.println("Failed to connect.");
             
         }
+        else{
+            System.out.println("Connection not null");
+        }
     }
 
     /**
@@ -36,7 +39,7 @@ public class DatabaseCommunicator{
      * @throws SQLException
      */
 
-    public ResultSet directExecution(String sql) throws SQLException {
-        return this.statement.execute(sql);
-    }
+//    public ResultSet directExecution(String sql) throws SQLException {
+//        return this.statement.execute(sql);
+//    }
 }
