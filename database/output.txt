@@ -1,0 +1,4 @@
+------------------
+WARNING!
+------------------
+Be careful with your input. Be careful of SQL injections. Avoid typing special characters(e.g. =, ', ") and SQL keywords(e.g. SELECT, ALTER, FROM, etc.)
