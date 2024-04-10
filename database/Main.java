@@ -2,6 +2,7 @@
  * @author Albert Gevorgyan
  * @version 1.0
  */
+//package database;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;

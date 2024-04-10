@@ -1,18 +1,13 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 /** Creates a connection with the database
  * @author Albert Gevorgyan
  * @version 1.0
  */
 
 public class DatabaseCommunicator{
-    protected static Connection connection;
-    protected Statement statement;
+    protected static String connection;
+//    protected Statement statement;
 
-    public DatabaseCommunicator(String dbURL) throws SQLException{
+    public DatabaseCommunicator(String username, String password, String dbDIR){
 
         if (connection == null){
 
