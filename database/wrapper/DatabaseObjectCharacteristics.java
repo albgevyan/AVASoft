@@ -1,3 +1,5 @@
+package wrapper;
+
 /** Stores the name, datatype and maximum length of a column.
  * @author Albert Gevorgyan
  * @version 1.0
