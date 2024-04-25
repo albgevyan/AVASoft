@@ -4,12 +4,12 @@ import core.DBUser;
 import exceptions.IdentificationFailed;
 import exceptions.InvalidInputFormatException;
 import exceptions.UnprivilegedActionException;
-import wrapper.Connection;
 
 import java.io.IOException;
 import java.util.Scanner;
 
 final public class AdminConsole {
+
     static private Connection connection;
 
     public static void main(String[] args) throws IOException{
@@ -42,7 +42,6 @@ final public class AdminConsole {
                 System.out.println("The user you are signed in does not have the privilege to execute your request.\n" +
                                    "Login as root user ADMIN.");
             }
-            break;
         }
     }
 

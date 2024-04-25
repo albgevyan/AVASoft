@@ -14,6 +14,7 @@ import java.util.Scanner;
 
 // CHECK EXCEPTIONS
 // YOU SHOULD REMOVE THEM
+// maybe we can make this calls an inner class
 
 final class Initializer {
     private final File ADMIN_PATH = new File("C:/Users/alber/Documents/GitHub/AVASoft/database/SCHEMAS/USERS/ADMIN.json");

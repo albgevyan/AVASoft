@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -224,10 +225,10 @@ public class DBUser implements java.io.Serializable{
         databaseWriter.write(this.jsonConverter.toJson(newUser));
     }
 
-//    public void createTable(String tableName) throws UnprivilegedActionException, IOException{
-//        hasPrivilege(Privilege.CREATE);
-//        Files.createDirectories(DB_PATH.resolve("TABLES" + tableName));
-//    }
+    public void createTable(String tableName) throws UnprivilegedActionException, IOException{
+        hasPrivilege(Privilege.CREATE);
+        Files.createDirectories(DB_PATH.resolve("TABLES" + tableName));
+    }
 
     public String toString(){
         return this.username + ',' + this.password + ',' + privilegesToString();

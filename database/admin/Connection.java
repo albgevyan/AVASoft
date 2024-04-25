@@ -1,4 +1,4 @@
-package wrapper;
+package admin;
 
 import core.Authenticator;
 import core.DBUser;
@@ -6,7 +6,7 @@ import exceptions.IdentificationFailed;
 
 public class Connection{
     private static Connection connection = new Connection();
-    public static DBUser USER;
+    static DBUser USER;
 
     private Connection(){}
 
@@ -14,4 +14,6 @@ public class Connection{
         USER = Authenticator.identification(username, password);
         return connection;
     }
+
+    public void createTable()
 }
