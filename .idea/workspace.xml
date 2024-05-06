@@ -5,68 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2a3df83-af46-40c0-bc91-8001e7928b99" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AVASoft.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AvaBank/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AvaBank/UserManagment/UserConsole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AvaBank/cli/BankTerminal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AvaBank/cli/EmployeePC.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AvaBank/cli/MoneyTransferService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AvaBank/core/Customer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AvaBank/core/Employee.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AvaBank/core/Transaction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AvaBank/core/TransactionOperations.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AvaBank/core/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/login/LoginConsole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/SCHEMAS/USERS/ADMIN.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/admin/AdminConsole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/admin/Connection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/admin/Initializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/core/Authenticator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/core/DBUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/core/DBUserAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/exceptions/DatabaseException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/exceptions/IdentificationFailed.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/exceptions/IncorrectPassword.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/exceptions/IncorrectUsername.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/exceptions/InvalidInputFormatException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/exceptions/TypeMismatchException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/exceptions/UnprivilegedActionException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/wrapper/DataContainer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/wrapper/DatabaseCommunicator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/wrapper/DatabaseObjectCharacteristics.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/wrapper/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/gson.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/AVASoft.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/AVASoftware.drawio" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/SCHEMAS/USERS/ADMIN.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/admin/AdminConsole.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/admin/Initializer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/app/login/LoginConsole.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/core/Authenticator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/core/DBUser$Privilege.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/core/DBUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/core/DBUserAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/exceptions/DatabaseException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/exceptions/IdentificationFailed.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/exceptions/IncorrectPassword.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/exceptions/IncorrectUsername.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/exceptions/InvalidInputFormatException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/exceptions/TypeMismatchException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/exceptions/UnprivilegedActionException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/lib/gson.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/wrapper/Connection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/wrapper/DataContainer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/wrapper/DatabaseCommunicator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/wrapper/DatabaseObjectCharacteristics.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/wrapper/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,27 +46,27 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/database&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/alber/Documents/GitHub/AVASoft/database/lib/gson.jar&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "21",
+    "last_opened_file_path": "C:/Users/alber/Documents/GitHub/AVASoft/database/lib/gson.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\alber\Documents\GitHub\AVASoft\app\login" />
@@ -195,7 +134,7 @@
       <workItem from="1714886470972" duration="525000" />
       <workItem from="1714887011808" duration="3378000" />
       <workItem from="1714913619801" duration="17131000" />
-      <workItem from="1714985615651" duration="681000" />
+      <workItem from="1714985615651" duration="1926000" />
     </task>
     <servers />
   </component>
