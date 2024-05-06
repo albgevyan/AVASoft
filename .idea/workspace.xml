@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d2a3df83-af46-40c0-bc91-8001e7928b99" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AVASoft.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AvaBank/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AvaBank/UserManagment/UserConsole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AvaBank/cli/BankTerminal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AvaBank/cli/EmployeePC.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AvaBank/cli/MoneyTransferService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AvaBank/core/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AvaBank/core/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AvaBank/core/Transaction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AvaBank/core/TransactionOperations.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AvaBank/core/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/login/LoginConsole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/SCHEMAS/USERS/ADMIN.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/admin/AdminConsole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/admin/Connection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/admin/Initializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/core/Authenticator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/core/DBUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/core/DBUserAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/exceptions/DatabaseException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/exceptions/IdentificationFailed.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/exceptions/IncorrectPassword.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/exceptions/IncorrectUsername.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/exceptions/InvalidInputFormatException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/exceptions/TypeMismatchException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/exceptions/UnprivilegedActionException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/wrapper/DataContainer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/wrapper/DatabaseCommunicator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/wrapper/DatabaseObjectCharacteristics.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/wrapper/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/gson.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/AVASoft.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/AVASoftware.drawio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/SCHEMAS/USERS/ADMIN.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/admin/AdminConsole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/admin/Initializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/app/login/LoginConsole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/core/Authenticator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/core/DBUser$Privilege.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/core/DBUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/core/DBUserAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/exceptions/DatabaseException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/exceptions/IdentificationFailed.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/exceptions/IncorrectPassword.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/exceptions/IncorrectUsername.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/exceptions/InvalidInputFormatException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/exceptions/TypeMismatchException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/exceptions/UnprivilegedActionException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/lib/gson.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/wrapper/Connection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/wrapper/DataContainer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/wrapper/DatabaseCommunicator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/wrapper/DatabaseObjectCharacteristics.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AVASoft/wrapper/Main.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2eUeRW6i6VytlyAxsQT0mIaiCyM" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/database&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/alber/Documents/GitHub/AVASoft/database/lib/gson.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alber\Documents\GitHub\AVASoft\app\login" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alber\Documents\GitHub\AVASoft\src\database" />
+      <recent name="C:\Users\alber\Documents\GitHub\AVASoft\src" />
+      <recent name="C:\Users\alber\Documents\GitHub\AVASoft\database\cli" />
+      <recent name="C:\Users\alber\Documents\GitHub\AVASoft\app" />
+      <recent name="C:\Users\alber\Documents\GitHub\AVASoft\database\admin" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d2a3df83-af46-40c0-bc91-8001e7928b99" name="Changes" comment="" />
+      <created>1711963575361</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711963575361</updated>
+      <workItem from="1711963576598" duration="711000" />
+      <workItem from="1712157009443" duration="50000" />
+      <workItem from="1712679807658" duration="2414000" />
+      <workItem from="1712760484440" duration="786000" />
+      <workItem from="1712762625187" duration="22000" />
+      <workItem from="1712779579681" duration="554000" />
+      <workItem from="1712780153780" duration="6975000" />
+      <workItem from="1712864162732" duration="1560000" />
+      <workItem from="1712865843935" duration="62000" />
+      <workItem from="1712865996878" duration="635000" />
+      <workItem from="1712866650593" duration="1362000" />
+      <workItem from="1712888507413" duration="1952000" />
+      <workItem from="1712947904410" duration="1689000" />
+      <workItem from="1712979091582" duration="2202000" />
+      <workItem from="1712983130616" duration="7880000" />
+      <workItem from="1712996807747" duration="11222000" />
+      <workItem from="1713017884233" duration="14407000" />
+      <workItem from="1713071087102" duration="1721000" />
+      <workItem from="1713191931831" duration="6098000" />
+      <workItem from="1713254753433" duration="823000" />
+      <workItem from="1713287272939" duration="11070000" />
+      <workItem from="1713355313540" duration="26000" />
+      <workItem from="1713380182188" duration="5000" />
+      <workItem from="1713693610758" duration="11894000" />
+      <workItem from="1713714678196" duration="2368000" />
+      <workItem from="1714048370397" duration="1107000" />
+      <workItem from="1714197371111" duration="10173000" />
+      <workItem from="1714566266419" duration="29000" />
+      <workItem from="1714578362029" duration="688000" />
+      <workItem from="1714820069223" duration="2855000" />
+      <workItem from="1714851078032" duration="416000" />
+      <workItem from="1714851611701" duration="86000" />
+      <workItem from="1714851712822" duration="38000" />
+      <workItem from="1714851762568" duration="7000" />
+      <workItem from="1714851774110" duration="66000" />
+      <workItem from="1714852653663" duration="251000" />
+      <workItem from="1714852934450" duration="1619000" />
+      <workItem from="1714854581915" duration="200000" />
+      <workItem from="1714854797067" duration="368000" />
+      <workItem from="1714883904328" duration="333000" />
+      <workItem from="1714884255192" duration="121000" />
+      <workItem from="1714884392969" duration="266000" />
+      <workItem from="1714884674163" duration="45000" />
+      <workItem from="1714884941914" duration="1326000" />
+      <workItem from="1714886470972" duration="525000" />
+      <workItem from="1714887011808" duration="3378000" />
+      <workItem from="1714913619801" duration="17131000" />
+      <workItem from="1714985615651" duration="681000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/out$AdminConsole.ic" NAME="AdminConsole Coverage Results" MODIFIED="1714920267685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>cli.*</FILTER>
+    </SUITE>
+  </component>
+</project>
