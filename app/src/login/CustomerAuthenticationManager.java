@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class CustomerAuthenticationManager {
     // Map to store user credentials (phone number -> password)
-    // I just realised that we should not store passwords. To be reimplemented later
+    // I just realized that we should not store passwords. To be reimplemented later
     private Map<String, String> credentials;
 
     public CustomerAuthenticationManager() {
@@ -32,8 +32,8 @@ public class CustomerAuthenticationManager {
      * @return true if the authentication succeeds, false otherwise
      */
     public boolean authenticateUser(String phoneNumber, String password) {
-        String storedPassword = credentials.get(phoneNumber);
-        return storedPassword != null && storedPassword.equals(password);
+        String storedPassword = credentials.get(phoneNumber); 
+        return storedPassword != null && storedPassword.equals(password); // wrong implementation 
     }
 
     /**
@@ -46,7 +46,7 @@ public class CustomerAuthenticationManager {
         return credentials.containsKey(phoneNumber);
     }
 
-    public String getUserFullName(String phoneNumber) {
+    public String getUserFullName(String phoneNumber) { // later rewrite getCustomer instead of getUserFullName
         // reads User database, finds phone number, creates a new User object inside and prints the object's fullName
         String fullName = "Ashot Mikaelyan";
         return fullName;
