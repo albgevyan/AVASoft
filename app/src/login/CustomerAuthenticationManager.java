@@ -8,7 +8,6 @@ import java.util.Map;
 
 public class CustomerAuthenticationManager {
     // Map to store user credentials (phone number -> password)
-    // I just realised that we should not store passwords. To be reimplemented later
     private Map<String, String> credentials;
 
     public CustomerAuthenticationManager() {
