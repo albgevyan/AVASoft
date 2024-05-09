@@ -1,7 +1,7 @@
 package cli;
 
-import admin.Connection;
-import admin.Initializer;
+import wrapper.Connection;
+import core.Initializer;
 import core.DBUser;
 import exceptions.IdentificationFailed;
 import exceptions.InvalidInputFormatException;
@@ -18,7 +18,6 @@ final public class AdminConsole {
         Initializer init = new Initializer();
         System.out.println("Initialisation successfully completed.");
         startConsole();
-
     }
 
     private static void startConsole() throws IOException {
@@ -33,7 +32,8 @@ final public class AdminConsole {
                     [1] Create user
                     [2] Create table
                     [3] Delete user
-                    [4] Close console
+                    [4] Delete table
+                    [5] Close console
                     """);
 
             try{
@@ -48,6 +48,9 @@ final public class AdminConsole {
                         deleteUser(input);
                         break;
                     case 4:
+                        deleteTable(input);
+                        break;
+                    case 5:
                         System.exit(1);
                     default:
                         System.out.println("Choose your action(e.g. enter 1 for \"Create User\").");
@@ -69,11 +72,14 @@ final public class AdminConsole {
 
             try {
                 connection = Connection.getConnection(username, password);
-                System.out.println("Successfully logged in.");
-                break;
             }
             catch (IdentificationFailed e) {
                 System.out.println(e.getMessage());
+            }
+
+            if (connection != null) {
+                System.out.println("Successfully logged in.");
+                break;
             }
         }
 
@@ -131,8 +137,9 @@ final public class AdminConsole {
                 System.out.println(e.getMessage());
             }
             catch (IOException e){
-                System.out.println("Warning the database file system may be corrupt." +
+                System.out.println("Warning the database file system may be corrupt. " +
                         "Unable to execute your request.");
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -144,10 +151,27 @@ final public class AdminConsole {
 
             try{
                 Connection.deleteUser(username);
+                break;
             }
             catch (IOException e){
                 System.out.println("Warning. The database file system may be corrupt." +
                         "Unable to delete " + username);
+            }
+        }
+    }
+
+    private static void deleteTable(Scanner input) throws UnprivilegedActionException{
+        while (true) {
+            System.out.println("Enter the name of the table you want to delete.");
+            String tableName = input.next();
+
+            try{
+                Connection.deleteTable(tableName);
+                break;
+            }
+            catch (InvalidInputFormatException e){
+                System.out.println("The entered table does not exist " +
+                        "Failed to execute your request.");
             }
         }
     }

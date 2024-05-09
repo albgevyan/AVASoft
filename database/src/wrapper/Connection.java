@@ -1,6 +1,5 @@
-package admin;
+package wrapper;
 
-import core.Authenticator;
 import core.DBUser;
 import exceptions.IdentificationFailed;
 import exceptions.InvalidInputFormatException;
@@ -15,7 +14,14 @@ public class Connection{
     private Connection(){}
 
     public static Connection getConnection(String username, String password) throws IdentificationFailed {
-        USER = Authenticator.identification(username, password);
+        try {
+            USER = DBUser.login(username, password);
+        }
+        catch (IOException e){
+            System.out.println("Warning. The specified user was not found in the database. The database file system may be corrupt.");
+            System.out.println(e.getMessage());
+            return null;
+        }
         return connection;
     }
 
@@ -29,5 +35,9 @@ public class Connection{
 
     public static void deleteUser(String username) throws UnprivilegedActionException, IOException{
         USER.deleteUser(username);
+    }
+
+    public static void deleteTable(String tableName) throws UnprivilegedActionException, InvalidInputFormatException{
+        USER.deleteTable(tableName);
     }
 }

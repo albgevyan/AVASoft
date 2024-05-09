@@ -1,13 +1,10 @@
-package admin;
+package core;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import core.DBUser;
-import core.DBUserAdapter;
 import exceptions.InvalidInputFormatException;
 
 import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -28,10 +25,6 @@ final public class Initializer {
 
         if (!Files.exists(ADMIN_PATH.resolve("USERS").resolve("ADMIN.json"))){
             Scanner input = new Scanner(System.in);
-            this.bufferedWriter = new BufferedWriter(new FileWriter(ADMIN_PATH.resolve("USERS").resolve("ADMIN.json").toString()));
-            this.builder = new GsonBuilder();
-            this.builder.registerTypeHierarchyAdapter(DBUser.class, new DBUserAdapter());
-            this.save = this.builder.create();
 
             while (true){
                 System.out.println("Enter a password for the root user of the database.");
@@ -44,13 +37,7 @@ final public class Initializer {
                 }
             }
 
-            this.insertUser();
+            this.ADMIN.logout();
         }
-    }
-
-    private void insertUser() throws IOException{
-        String json = this.save.toJson(this.ADMIN);
-        this.bufferedWriter.write(json);
-        this.bufferedWriter.close();
     }
 }

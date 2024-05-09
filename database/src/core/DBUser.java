@@ -2,18 +2,20 @@ package core;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
+import com.google.gson.stream.JsonWriter;
 import exceptions.*;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Objects;
 
 /**
  * @author Albert Gevorgyam
@@ -28,6 +30,46 @@ import java.security.NoSuchAlgorithmException;
 // MAKE THE USERNAME&PASSWORD PRIVATE
 
 public class DBUser implements java.io.Serializable{
+
+    private static class DBUserAdapter  extends TypeAdapter<DBUser> {
+
+        public DBUser read(JsonReader reader) throws IOException {
+            if (reader.peek() == JsonToken.NULL){
+                reader.nextNull();
+                return null;
+            }
+
+            reader.beginObject();
+            reader.nextName();
+            String username = reader.nextString();
+            reader.nextName();
+            String password = reader.nextString();
+            reader.nextName();
+            DBUser.Privilege[] privileges = DBUser.privilegesFromString(reader.nextString());
+            reader.endObject();
+
+            try {
+                return new DBUser(username, password, privileges);
+            }
+            catch (InvalidInputFormatException e){
+                System.out.println("Warning the program encountered an error; the user may be corrupt.");
+                System.out.println(e.getMessage());
+                return null;
+            }
+        }
+
+        public void write(JsonWriter writer, DBUser user) throws IOException{
+            if (user == null) {
+                writer.nullValue();
+                return;
+            }
+            writer.beginObject();
+            writer.name("username").value(user.username);
+            writer.name("password").value(user.password);
+            writer.name("privileges").value(user.privilegesToString());
+            writer.endObject();
+        }
+    }
     private static final MessageDigest digest;
 
     static {
@@ -41,7 +83,7 @@ public class DBUser implements java.io.Serializable{
 
     public enum Privilege {RETRIEVE, CREATE, INSERT, ALTER, GRANT, DELETE}
     private static final Path DB_PATH = SCHEMAS.DatabaseDirectory.getDatabasePath();
-    public final String username;
+    private final String username;
     public final String password;
     private Privilege[] privileges;
     private BufferedWriter databaseWriter;
@@ -108,7 +150,7 @@ public class DBUser implements java.io.Serializable{
     private void validateInput(String input) throws InvalidInputFormatException{
 
         if (input.length() < MIN_INPUT_LENGTH || input.length() > MAX_INPUT_LENGTH)
-            throw new InvalidInputFormatException("Error the input muast be in the range [" + MIN_INPUT_LENGTH + ", " + MAX_INPUT_LENGTH + "]");
+            throw new InvalidInputFormatException("Error the input must be in the range [" + MIN_INPUT_LENGTH + ", " + MAX_INPUT_LENGTH + "]");
 
         input = input.toUpperCase();
 
@@ -121,8 +163,8 @@ public class DBUser implements java.io.Serializable{
 
     private Privilege[] validatePrivileges(Privilege[] privileges) throws InvalidInputFormatException{
         int privilegeCount = 0;
-        for (int i = 0; i < privileges.length; i++) {
-            if (privileges[i] != null)
+        for (Privilege privilege : privileges) {
+            if (privilege != null)
                 privilegeCount++;
         }
         if (privilegeCount == 0)
@@ -234,9 +276,28 @@ public class DBUser implements java.io.Serializable{
         return true;
     }
 
+    public static DBUser login(String username, String password) throws IOException, IdentificationFailed{
+        FileReader fileReader = new FileReader(SCHEMAS.DatabaseDirectory.getDatabaseDirectory() + "/USERS/" + username + ".json");
+        GsonBuilder builder = new GsonBuilder();
+        builder.registerTypeHierarchyAdapter(DBUser.class, new DBUserAdapter());
+        Gson gson = builder.create();
+        DBUser user = gson.fromJson(fileReader, DBUser.class);
+
+        if (user.identifyUser(username, password))
+            return user;
+        return null;
+    }
+
+    public void logout() throws IOException{
+        String json = this.jsonConverter.toJson(this);
+        this.databaseWriter = new BufferedWriter(new FileWriter(DB_PATH.resolve("USERS").resolve(this.username + ".json").toString()));
+        this.databaseWriter.write(json);
+        this.databaseWriter.close();
+    }
+
     private boolean hasPrivilege(Privilege p) throws UnprivilegedActionException{
         for (Privilege privilege : this.privileges) {
-            if (privilege == p)
+            if (privilege == Privilege.GRANT || privilege == p)
                 return true;
         }
         throw new UnprivilegedActionException(this.username, p);
@@ -248,13 +309,13 @@ public class DBUser implements java.io.Serializable{
         DBUser newUser = new DBUser(username, password, privileges);
         this.databaseWriter = new BufferedWriter(new FileWriter(DB_PATH.resolve("USERS").resolve(username + ".json").toString()));
         this.databaseWriter.write(this.jsonConverter.toJson(newUser));
+        this.databaseWriter.close();
     }
 
     public void createTable(String tableName) throws UnprivilegedActionException, InvalidInputFormatException, IOException{
         hasPrivilege(Privilege.CREATE);
         validateInput(tableName);
-        this.databaseWriter = new BufferedWriter(new FileWriter(DB_PATH.resolve("TABLES").resolve(tableName).toString()));
-
+        Files.createDirectories(DB_PATH.resolve("TABLES").resolve(tableName));
     }
 
     public void deleteUser(String username) throws UnprivilegedActionException, IOException{
@@ -262,9 +323,27 @@ public class DBUser implements java.io.Serializable{
         Files.delete(DB_PATH.resolve("USERS").resolve(username + ".json"));
     }
 
-    public String toString(){
-        return this.username + ',' + this.password + ',' + privilegesToString();
+    public void deleteTable(String tableName) throws UnprivilegedActionException, InvalidInputFormatException{
+        hasPrivilege(Privilege.DELETE);
+        validateInput(tableName);
+        deleteDirectory(new File(DB_PATH.resolve("TABLES").resolve(tableName).toString()));
     }
+
+    private static void deleteDirectory(File directory){
+        if (directory.isDirectory()) {
+            for (File file : Objects.requireNonNull(directory.listFiles())) {
+                deleteDirectory(file);  // Recursive call for subdirectories
+            }
+            // Delete the empty directory after deleting contents
+            directory.delete();
+        } else {
+            // Delete the file if it's not a directory
+            directory.delete();
+        }
+    }
+
+    @Override
+    public String toString(){return null;}
 
     /*
     public void insertRow(Object row, String tableName) throws UnprivilegedActionException, IOException, TypeMismatchException{
