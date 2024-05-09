@@ -86,21 +86,24 @@ public class User {
     public String getAddress() {
         return address;
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Customer customer = (Customer) object;
+        return getPhoneNumber().equals(customer.getPhoneNumber());
+    }
+
     /**
      * Returns a string representation of the user.
      *
      * @return a string representation of the user
      */
+
+
     @Override
     public String toString() {
-        // Later change toString method to save data in a file more efficiently
-        return "User{" +
-                "gender=" + gender +
-                ", userId='" + userID + '\'' +
-                ", fullName='" + fullName + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", address='" + address + '\'' +
-                '}';
+        return fullName + "," + gender + "," + userID + "," + email + "," + phoneNumber + "," + address;
     }
 }

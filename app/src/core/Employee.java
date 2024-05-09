@@ -1,11 +1,12 @@
 package AvaBank.core;
 
+import AvaBank.database.CustomerDatabase;
+
 /**
  * The Employee class represents an employee of AvaBank with functionalities related to customer management.
  * This class extends the User class and is responsible for registering new customers.
  */
 public class Employee extends User {
-    private String login;
     private String password;
 
     /**
@@ -17,12 +18,10 @@ public class Employee extends User {
      * @param email       the email address of the employee
      * @param phoneNumber the phone number of the employee
      * @param address     the address of the employee
-     * @param login       the login username of the employee
      * @param password    the login password of the employee
      */
-    public Employee(String fullName, Gender gender, String userId, String email, String phoneNumber, String address, String login, String password) {
+    public Employee(String fullName, Gender gender, String userId, String email, String phoneNumber, String address, String password) {
         super(fullName, gender, userId, email, phoneNumber, address);
-        this.login = login;
         this.password = password;
     }
 
@@ -35,11 +34,16 @@ public class Employee extends User {
      * @param email       the email address of the customer
      * @param phoneNumber the phone number of the customer
      * @param address     the address of the customer
-     * @param password    the login password for the customer's account
      */
 
-    public void registerCustomer(String fullName, Gender gender, String userId, String email, String phoneNumber, String address, String password){
-        // GUI sends parameters to registerCustomer and creates a new Customer object which is then saved in a database
+    public void registerCustomer(String fullName, Gender gender, String userId, String email, String phoneNumber, String address){
+        CustomerDatabase database = new CustomerDatabase();
         Customer customer = new Customer(fullName, gender, userId, email, phoneNumber, address);
+        database.addCustomer(customer);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + password;
     }
 }

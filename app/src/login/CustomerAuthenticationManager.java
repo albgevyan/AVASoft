@@ -1,5 +1,8 @@
 package AvaBank.login;
 
+import AvaBank.database.CustomerDatabase;
+import AvaBank.core.*;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,8 +23,11 @@ public class CustomerAuthenticationManager {
      */
     public void registerUser() {
         // reads customer database file and puts phone number and bank account code into it
-        String phoneNumber = null, password = null;
-        credentials.put(phoneNumber, password);
+        CustomerDatabase database = new CustomerDatabase();
+        for(int i = 0; i < database.getSize(); i++){
+            Customer customer = database.getCustomer(i);
+            credentials.put(customer.getPhoneNumber(), customer.getBankAccountPassword());
+        }
     }
 
     /**
@@ -46,9 +52,4 @@ public class CustomerAuthenticationManager {
         return credentials.containsKey(phoneNumber);
     }
 
-    public String getUserFullName(String phoneNumber) {
-        // reads User database, finds phone number, creates a new User object inside and prints the object's fullName
-        String fullName = "Ashot Mikaelyan";
-        return fullName;
-    }
 }

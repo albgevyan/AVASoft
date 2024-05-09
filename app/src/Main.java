@@ -11,15 +11,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         Customer customer = new Customer("Ashot", User.Gender.MALE, "MK21312", "dsads@mail.ru", "+3749830077", "dsadsa");
-
-        BankTerminal terminal = new BankTerminal(32233);
-
-
-        List<Transaction> transactions = customer.getTransactions();
-
-        for (int i = 0; i < transactions.size(); i++){
-            System.out.println(transactions.get(i));
-        }
-        customer.printBalance();
+        customer.registerBankAccount("Ashotik1223");
+        System.out.println(customer.getBankAccount());
+        System.out.println(customer);
     }
 }

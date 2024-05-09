@@ -32,21 +32,21 @@ public abstract class MoneyTransferService {
      * @param amount   the amount of money to be deposited
      */
     public void deposit(Customer customer, BigDecimal amount) {
-        Transaction transaction = new Transaction(Transaction.Type.DEPOSIT, amount, customer, this);
+        Transaction transaction = new Transaction(Transaction.Type.DEPOSIT, amount, customer);
         transaction.execute();
         getTransactions().add(transaction);
         customer.registerTransaction(transaction);
     }
 
     public void withdraw(Customer customer, BigDecimal amount) {
-        Transaction transaction = new Transaction(Transaction.Type.WITHDRAW, amount, customer, this);
+        Transaction transaction = new Transaction(Transaction.Type.WITHDRAW, amount, customer);
         transaction.execute();
         getTransactions().add(transaction);
         customer.registerTransaction(transaction);
     }
 
     public void transfer(Customer customer1, BigDecimal amount, Customer customer2) {
-        Transaction transaction = new Transaction(Transaction.Type.TRANSFER, amount, customer1, customer2, this);
+        Transaction transaction = new Transaction(Transaction.Type.TRANSFER, amount, customer1, customer2);
         transaction.execute();
         getTransactions().add(transaction);
         customer1.registerTransaction(transaction);

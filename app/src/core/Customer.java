@@ -1,4 +1,6 @@
 package AvaBank.core;
+import AvaBank.database.CustomerDatabase;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -34,6 +36,9 @@ public class Customer extends User implements TransactionOperations {
 
             public Balance() {
                 this.balance = BigDecimal.valueOf(0);
+            }
+            public Balance(BigDecimal balance) {
+                this.balance = balance;
             }
 
             /**
@@ -102,27 +107,31 @@ public class Customer extends User implements TransactionOperations {
 
             @Override
             public String toString() {
-                return "Balance: " + balance;
+                return balance.toString();
             }
         }
 
         private Balance balance;
-        private String code;
+        private String password;
 
         /**
-         * Constructs a BankAccount object with the specified code.
+         * Constructs a BankAccount object with the specified password.
          *
-         * @param code the code of the bank account
+         * @param password the code of the bank account
          * @throws IllegalArgumentException if the length of the code is not between 5 and 20 characters
          */
 
-        public BankAccount(String code) {
+        public BankAccount(String password) {
             balance = new Balance();
-            if(code.length() < 5 || code.length() > 20){
+            if(password.length() < 5 || password.length() > 20){
                 throw new IllegalArgumentException("code length should be between 5 and 20");
             }
+            this.password = password;
         }
-
+        public BankAccount(BigDecimal number, String password){
+            this(password);
+            this.balance = new Balance(number);
+        }
         @Override
         public void depositAmount(BigDecimal amount) {
             balance.addAmount(amount);
@@ -139,46 +148,39 @@ public class Customer extends User implements TransactionOperations {
 
         public void closeAccount() {
             balance.setBalance(BigDecimal.valueOf(0));
-            // save account data in one file
             // we do that if we suspect that account is hacked
         }
 
         @Override
-        protected Object clone() {
-            try {
-                BankAccount clonedAccount = (BankAccount) super.clone();
-                return clonedAccount;
-            } catch (CloneNotSupportedException e) {
-                System.err.println("Clone not supported: " + e.getMessage());
-                return null;
-            }
+        public String toString() {
+            return getBalance() + "," + password;
         }
     }
 
-    private BankAccount bankAccount; // maybe later create list of bank accounts to have more than 1 bank account
+    private BankAccount bankAccount;
     private List<Transaction> transactions;
 
-    /**
-     * Constructs a Customer object with the specified details.
-     *
-     * @param fullName the full name of the customer
-     * @param gender the gender of the customer
-     * @param userId the user ID of the customer
-     * @param email the email address of the customer
-     * @param phoneNumber the phone number of the customer
-     * @param address the address of the customer
-     */
 
     public Customer(String fullName, Gender gender, String userId, String email, String phoneNumber, String address) {
         super(fullName, gender, userId, email, phoneNumber, address);
         this.transactions = new ArrayList<>();
-        registerBankAccount();
     }
+    public Customer(String fullName, Gender gender, String userId, String email, String phoneNumber, String address, BankAccount bankAccount, List<Transaction> transactions) {
+        super(fullName, gender, userId, email, phoneNumber, address);
+        this.bankAccount = bankAccount;
+        this.transactions = transactions;
 
+    }
+    public Customer(String[] args, BankAccount bankAccount, List<Transaction> transactions) {
+        this(args[0], Gender.valueOf(args[1]), args[2], args[3], args[4], args[5]);
+    }
     public void registerBankAccount(){
-        System.out.println("Select bank account code");
+        System.out.println("Write bank account password(the length should be no less than 5 and no more than 20): ");
         Scanner sc = new Scanner(System.in);
         bankAccount = new BankAccount(sc.nextLine());
+    }
+    public void registerBankAccount(String password){
+        bankAccount = new BankAccount(password);
     }
     @Override
     public void depositAmount(BigDecimal amount) {
@@ -195,22 +197,10 @@ public class Customer extends User implements TransactionOperations {
         receiver.depositAmount(amount);
     }
 
-
-    public BankAccount getBankAccount() {
-        return (BankAccount) bankAccount.clone();
-    }
-
     public void printBalance() {
         System.out.println(bankAccount.getBalance());
     }
     public void closeBankAccount() {
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("account_data.txt"));
-            // Save account data
-
-        } catch (IOException e) {
-            System.err.println("Error writing account data: " + e.getMessage());
-        }
         bankAccount.closeAccount();
         bankAccount = null;
     }
@@ -222,8 +212,49 @@ public class Customer extends User implements TransactionOperations {
         return new ArrayList<>(transactions);
     }
 
+    public BankAccount getBankAccount() {
+        return bankAccount;
+    }
+
+    public String getBankAccountPassword(){
+        return bankAccount.password;
+    }
+
+    @Override
+    public int hashCode() {
+        return getPhoneNumber().hashCode();
+    }
+
     @Override
     public String toString() {
-        return super.toString();
+        return super.toString() + "\n" + bankAccount + " " + transactions;
     }
 }
+/*this(args[0], Gender.valueOf(args[1]), args[2], args[3], args[4], args[5]);
+        if(args.length == 8) {
+            this.bankAccount = new BankAccount(new BigDecimal(args[6]), args[7]);
+            this.transactions = new ArrayList<>();
+            for (int i = 0; i < args[8].length(); i++) {
+                String[] parts = args[8].split(";");
+                // Parse transaction details
+                if (parts.length == 6) {
+                    Transaction transaction = new Transaction(
+                            Transaction.Type.valueOf(parts[1]),
+                            new BigDecimal(parts[2]),
+                            new Customer(parts[3].split(","))
+                    );
+                    transactions.add(transaction);
+                }
+                else {
+                    Transaction transaction = new Transaction(
+                            Transaction.Type.valueOf(parts[1]),
+                            new BigDecimal(parts[2]),
+                            new Customer(parts[3].split(",")),
+                            new Customer(parts[4].split(","))
+                    );
+                    transactions.add(transaction);
+                }
+            }
+        }
+
+         */

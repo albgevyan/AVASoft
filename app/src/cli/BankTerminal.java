@@ -28,14 +28,14 @@ public class BankTerminal extends MoneyTransferService {
         if(authenticationManager.isUserRegistered(phoneNumber)) {
 
             System.out.println("Welcome " + authenticationManager.getUserFullName(phoneNumber));
-            String code;
+            String password;
             do{
-                System.out.println("Enter your bank account code");
-                code = sc.nextLine();
-                if(authenticationManager.authenticateUser(phoneNumber, code)){
+                System.out.println("Type your bank account password");
+                password = sc.nextLine();
+                if(authenticationManager.authenticateUser(phoneNumber, password)){
                     logined = true;
                 }
-            } while (authenticationManager.authenticateUser(phoneNumber, code));
+            } while (authenticationManager.authenticateUser(phoneNumber, password));
             if(logined){
                 //Customer customer = new Customer(); DATABASE. It must identify user by phoneNumber and create a new object
                 System.out.println("Type 1 if you want to deposit");
