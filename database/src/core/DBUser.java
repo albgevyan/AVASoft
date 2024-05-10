@@ -255,8 +255,6 @@ public class DBUser implements java.io.Serializable{
         if (password.length() != this.password.length())
             throw new IncorrectPassword();
 
-//        password = getSHA256Hash(password);
-
         for (int i = 0; i < this.password.length(); i++) {
             if (this.password.charAt(i) != password.charAt(i))
                 throw new IncorrectPassword();
@@ -347,12 +345,12 @@ public class DBUser implements java.io.Serializable{
     private static void deleteDirectory(File directory){
         if (directory.isDirectory()) {
             for (File file : Objects.requireNonNull(directory.listFiles())) {
-                deleteDirectory(file);  // Recursive call for subdirectories
+                deleteDirectory(file);
             }
-            // Delete the empty directory after deleting contents
+
             directory.delete();
         } else {
-            // Delete the file if it's not a directory
+
             directory.delete();
         }
     }

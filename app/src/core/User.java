@@ -136,13 +136,9 @@ public abstract class User {
         return null;
     }
 
-    public abstract boolean identification(String password);
-
     public abstract User login(String username, String password) throws IdentificationFailed;
 
     public abstract void logout();
-
-    public abstract void changePassword();
 
     @Override
     public String toString() {return null;}
