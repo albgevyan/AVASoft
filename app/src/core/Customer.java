@@ -1,4 +1,4 @@
-package core;
-
-public class Customer extends User{
-}
+//package core;
+//
+//public class Customer extends User{
+//}

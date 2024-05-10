@@ -1,11 +1,12 @@
 package cli;
 
-import wrapper.Connection;
-import core.Initializer;
 import core.DBUser;
+import core.Employee;
+import core.Initializer;
 import exceptions.IdentificationFailed;
 import exceptions.InvalidInputFormatException;
 import exceptions.UnprivilegedActionException;
+import wrapper.Connection;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -129,7 +130,7 @@ final public class AdminConsole {
             String tableName = input.nextLine();
 
             try{
-                Connection.createTable(tableName);
+                Connection.createTable(tableName, Employee.class);
                 System.out.println("Table " + tableName + " successfully created.");
                 break;
             }

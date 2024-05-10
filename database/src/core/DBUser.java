@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -32,6 +33,18 @@ import java.util.Objects;
 public class DBUser implements java.io.Serializable{
 
     private static class DBUserAdapter  extends TypeAdapter<DBUser> {
+
+        public void write(JsonWriter writer, DBUser user) throws IOException{
+            if (user == null) {
+                writer.nullValue();
+                return;
+            }
+            writer.beginObject();
+            writer.name("username").value(user.username);
+            writer.name("password").value(user.password);
+            writer.name("privileges").value(user.privilegesToString());
+            writer.endObject();
+        }
 
         public DBUser read(JsonReader reader) throws IOException {
             if (reader.peek() == JsonToken.NULL){
@@ -57,18 +70,6 @@ public class DBUser implements java.io.Serializable{
                 return null;
             }
         }
-
-        public void write(JsonWriter writer, DBUser user) throws IOException{
-            if (user == null) {
-                writer.nullValue();
-                return;
-            }
-            writer.beginObject();
-            writer.name("username").value(user.username);
-            writer.name("password").value(user.password);
-            writer.name("privileges").value(user.privilegesToString());
-            writer.endObject();
-        }
     }
     private static final MessageDigest digest;
 
@@ -84,7 +85,7 @@ public class DBUser implements java.io.Serializable{
     public enum Privilege {RETRIEVE, CREATE, INSERT, ALTER, GRANT, DELETE}
     private static final Path DB_PATH = SCHEMAS.DatabaseDirectory.getDatabasePath();
     private final String username;
-    public final String password;
+    private final String password;
     private Privilege[] privileges;
     private BufferedWriter databaseWriter;
     private BufferedReader databaseRetriever;
@@ -312,10 +313,24 @@ public class DBUser implements java.io.Serializable{
         this.databaseWriter.close();
     }
 
-    public void createTable(String tableName) throws UnprivilegedActionException, InvalidInputFormatException, IOException{
+    public void createTable(String tableName, Class dataType) throws UnprivilegedActionException, InvalidInputFormatException, IOException{
         hasPrivilege(Privilege.CREATE);
         validateInput(tableName);
         Files.createDirectories(DB_PATH.resolve("TABLES").resolve(tableName));
+        ArrayList<?> table = createArrayList(dataType);
+        this.databaseWriter = new BufferedWriter(new FileWriter(DB_PATH.resolve("TABLES").resolve(tableName).resolve(tableName + ".json").toString()));
+        this.databaseWriter.write(this.jsonConverter.toJson(table));
+        this.databaseWriter.close();
+    }
+
+    private static <T> ArrayList<T> createArrayList(Class<T> classType) {
+        return new ArrayList<>();
+    }
+
+    public <T> ArrayList<T> retrieve(String tableName, Class<T> dataType) throws UnprivilegedActionException, IOException{
+        hasPrivilege(Privilege.RETRIEVE);
+        this.databaseRetriever = new BufferedReader(new FileReader(DB_PATH.resolve("TABLES").resolve(tableName).resolve(tableName + ".json").toString()));
+        return this.jsonConverter.fromJson(this.databaseRetriever, ArrayList.class);
     }
 
     public void deleteUser(String username) throws UnprivilegedActionException, IOException{
@@ -345,8 +360,7 @@ public class DBUser implements java.io.Serializable{
     @Override
     public String toString(){return null;}
 
-    /*
-    public void insertRow(Object row, String tableName) throws UnprivilegedActionException, IOException, TypeMismatchException{
+    public void insert(Object row, String tableName) throws UnprivilegedActionException, IOException, TypeMismatchException{
         hasPrivilege(Privilege.INSERT);
         this.databaseRetriever = Files.newBufferedReader(DB_PATH.resolve("TABLES").resolve(tableName));
         this.databaseWriter = Files.newBufferedWriter(DB_PATH.resolve("TABLES").resolve(tableName));
@@ -357,6 +371,7 @@ public class DBUser implements java.io.Serializable{
         databaseWriter.write(jsonConverter.toJson(TABLE));
     }
 
+    /*
     public Object getRow(String tableName, int rowIndex) throws UnprivilegedActionException, IOException{
         hasPrivilege(Privilege.RETRIEVE);
         this.databaseRetriever = Files.newBufferedReader(DB_PATH.resolve(tableName));

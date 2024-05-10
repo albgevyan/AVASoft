@@ -6,6 +6,7 @@ import exceptions.InvalidInputFormatException;
 import exceptions.UnprivilegedActionException;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Connection{
     private static final Connection connection = new Connection();
@@ -25,8 +26,8 @@ public class Connection{
         return connection;
     }
 
-    public static void createTable(String tableName) throws UnprivilegedActionException, IOException, InvalidInputFormatException {
-        USER.createTable(tableName);
+    public static void createTable(String tableName, Class<?> dataType) throws UnprivilegedActionException, IOException, InvalidInputFormatException {
+        USER.createTable(tableName, dataType);
     }
 
     public static void createUser(String username, String password, DBUser.Privilege[] privileges) throws UnprivilegedActionException, IOException, InvalidInputFormatException {
@@ -39,5 +40,9 @@ public class Connection{
 
     public static void deleteTable(String tableName) throws UnprivilegedActionException, InvalidInputFormatException{
         USER.deleteTable(tableName);
+    }
+
+    public <T> ArrayList<T> retrieve(String tableName, Class<T> dataType) throws UnprivilegedActionException, IOException{
+        return USER.retrieve(tableName, dataType);
     }
 }
