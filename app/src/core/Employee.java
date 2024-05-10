@@ -78,16 +78,18 @@ public class Employee extends User{
     private String username;
 
 
-    public Employee(int SSN, String name, String surname, String email, Date birthDate, Gender gender) throws IdentificationFailed {
+    public Employee(int SSN, String name, String surname, String email, Date birthDate, Gender gender) throws IdentificationFailed, InvalidInputFormatException {
         super(SSN, name, surname, email, birthDate, gender);
         this.username = name + " " + surname;
-        while (true){
-            try {
-                validateUsername(username);
-                break;
-            }
-            catch (InvalidInputFormatException e){
-                
+        try {
+            validateUsername(username);
+        }
+        catch (InvalidInputFormatException e) {
+            for (int i = 0; ; i++) {
+                try {
+                    validateUsername(username + '_' + i);
+                    break;
+                } catch (InvalidInputFormatException e1) {}
             }
         }
     }

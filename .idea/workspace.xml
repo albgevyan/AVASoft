@@ -6,17 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d2a3df83-af46-40c0-bc91-8001e7928b99" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/core/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/core/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/core/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/core/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/core/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/core/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/database.iml" beforeDir="false" afterPath="$PROJECT_DIR$/database/database.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/production/database/cli/AdminConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/database/production/database/cli/AdminConsole.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/production/database/core/DBUser$Privilege.class" beforeDir="false" afterPath="$PROJECT_DIR$/database/production/database/core/DBUser$Privilege.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/production/database/core/DBUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/database/production/database/core/DBUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/src/cli/AdminConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/src/cli/AdminConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/src/core/DBUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/src/core/DBUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/src/wrapper/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/src/wrapper/Connection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +146,7 @@
       <workItem from="1715199762147" duration="5337000" />
       <workItem from="1715205358206" duration="213000" />
       <workItem from="1715232247938" duration="2045000" />
-      <workItem from="1715236176178" duration="43084000" />
+      <workItem from="1715236176178" duration="44332000" />
     </task>
     <servers />
   </component>
