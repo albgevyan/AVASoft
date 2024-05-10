@@ -1,7 +1,7 @@
 package cli;
 
 import core.DBUser;
-import core.Employee;
+
 import core.Initializer;
 import exceptions.IdentificationFailed;
 import exceptions.InvalidInputFormatException;
